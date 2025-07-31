@@ -8,6 +8,71 @@
         <script src="j.js"></script>
     </head>
     <body>
-        
+        <p id="p0"></p>
+        <fieldset id="f0" class="f"></fieldset>
+        <fieldset id="f1" class="f"></fieldset>
+
+        <script>
+            let q,n,r,f0,f1,b=[],c=[]
+            l=['M','+','-','A','S']
+
+            function ini(){
+                q=6
+                f0=ig('f0')
+                f1=ig('f1')
+            }ini()
+
+            function rei(){
+                r=[]
+                r[0]=''
+                r[1]=''
+                n=[]
+                for(let i=0;i<q;i++){
+                    if(i==0 || i==5 || i==10)n[i]=mat(3,4)
+                    else if(i==1 || i==6 || i==11)n[i]=mat(6,1)
+                    else n[i]=mat(3,1)
+                }
+                r[0]=frj(n)
+                it(p0,r[0])
+            }rei()
+
+            for(let i=0;i<6;i++){
+                b[i]=ie('button')
+                ii(b[i],'b'+i)
+                ic(b[i],'h')
+                ap(f0,b[i])
+                b[i].onclick=()=>{
+                    
+                }
+            }
+            for(let i=0;i<5;i++){
+                c[i]=ie('button')
+                ii(c[i],'c'+i)
+                ic(c[i],'b')
+                it(c[i],l[i])
+                ap(f1,c[i])
+                c[i].onclick=()=>{
+                    if(i==0)rei()
+                    if(i==1){
+                        if(q<14){
+                            q++
+                            rei()
+                        }
+                    }
+                    if(i==2){
+                        if(q>4){
+                            q--
+                            rei()
+                        }
+                    }
+                    if(i==3){
+
+                    }
+                    if(i==4){
+                        
+                    }
+                }
+            }
+        </script>
     </body>
 </html>

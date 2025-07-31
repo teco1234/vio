@@ -12,8 +12,8 @@ function ap(a,b){a.appendChild(b)}
 function c0(a,b){a.style.backgroundColor=b}
 function c1(a,b){a.style.color=b}
 
-function frn(a,b){
-    for(let i=0;i<a;i++)b[i]=mat(10,0)
+function frn(a0,a1,a2,a3){
+    for(let i=0;i<a0;i++)a1[i]=mat(a2,a3)
 }
 function frm(a){
     for(i=0;i<a.length;i++)cn(a[i])

@@ -2,6 +2,8 @@ body{
     background-color: rgb(233, 229, 216);
     font-size: 30px;
     font-family: tahoma;
+    margin: 0%;
+    padding: 0%;
 }
 p{
     margin: -2px 2px;
@@ -18,6 +20,13 @@ p{
     padding: 5px 20px;
     font-family: fantasy;
     margin: 2px 2px;
+}
+.h{
+    background-color: rgb(215, 162, 131);
+    border: none;
+    margin: 15px -5px;
+    width: 100%;
+    height: 30px;
 }
 .b:hover{background-color: rgb(212, 2, 2);}
 .b:active{background-color: rgb(253, 19, 19);}
