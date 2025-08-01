@@ -13,27 +13,63 @@
         <fieldset id="f1" class="f"></fieldset>
 
         <script>
-            let q,n,r,f0,f1,b=[],c=[]
+            let q,n,r,f0,f1,b=[],c=[],cl,ct,auto=[]
             l=['M','+','-','A','S']
+            som=[]
 
             function ini(){
                 q=6
                 f0=ig('f0')
                 f1=ig('f1')
+
+                auto[0]=false
+                auto[1]=false
+
+                for(let i=0;i<6;i++){
+                    som[i]=new Audio('m'+i+'.mp3')
+                }
             }ini()
 
             function rei(){
                 r=[]
                 r[0]=''
                 r[1]=''
+                r[2]=''
+                r[3]=''
+                r[4]=''
+                r[5]=''
+                r[6]=''
+                r[7]=''
+                r[8]=''
+                r[9]=''
+                r[10]=''
+                r[11]=''
+                r[12]=''
                 n=[]
+                
                 for(let i=0;i<q;i++){
                     if(i==0 || i==5 || i==10)n[i]=mat(3,4)
-                    else if(i==1 || i==6 || i==11)n[i]=mat(6,1)
+                    else if(i==1 || i==3 || i==5 || i==1 || i==3 || i==5)n[i]=mat(6,1)
                     else n[i]=mat(3,1)
+
+                    r[0]+=n[i]
+                    if(i>0)r[1]+=n[i]
+                    if(i>1)r[2]+=n[i]
+                    if(i>2)r[3]+=n[i]
+                    if(i>3)r[4]+=n[i]
+                    if(i>4)r[5]+=n[i]
+                    if(i>5)r[6]+=n[i]
+                    if(i>6)r[7]+=n[i]
+                    if(i>7)r[8]+=n[i]
+                    if(i>8)r[9]+=n[i]
+                    if(i>9)r[10]+=n[i]
+                    if(i>10)r[11]+=n[i]
+                    if(i>11)r[12]+=n[i]
+                    if(i>12)r[13]+=n[i]
                 }
-                r[0]=frj(n)
+                
                 it(p0,r[0])
+                ct=0
             }rei()
 
             for(let i=0;i<6;i++){
@@ -42,7 +78,23 @@
                 ic(b[i],'h')
                 ap(f0,b[i])
                 b[i].onclick=()=>{
-                    
+                    if(i==0)cl=6
+                    if(i==1)cl=5
+                    if(i==2)cl=4
+                    if(i==3)cl=3
+                    if(i==4)cl=2
+                    if(i==5)cl=1
+
+                    if(n[ct]==cl){
+                        ct++
+                        if(ct==q){
+                            if(auto[0])rei()
+                            else ct=0
+                        }
+                        it(p0,r[ct])
+
+                        if(auto[1])som[i].play()
+                    }
                 }
             }
             for(let i=0;i<5;i++){
@@ -54,7 +106,7 @@
                 c[i].onclick=()=>{
                     if(i==0)rei()
                     if(i==1){
-                        if(q<14){
+                        if(q<12){
                             q++
                             rei()
                         }
@@ -66,10 +118,18 @@
                         }
                     }
                     if(i==3){
+                        if(!auto[0])auto[0]=true
+                        else auto[0]=false
 
+                        if(!auto[0])c1(c[i],k[0])
+                        else c1(c[i],k[3])
                     }
                     if(i==4){
-                        
+                        if(!auto[1])auto[1]=true
+                        else auto[1]=false
+
+                        if(!auto[1])c1(c[i],k[0])
+                        else c1(c[i],k[3])
                     }
                 }
             }
